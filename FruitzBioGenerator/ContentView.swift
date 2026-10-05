@@ -140,11 +140,14 @@ struct ContentView: View {
                             .padding(.leading, 4)
                         
                         VStack {
-                            TextEditor(text: .constant(generatedBio.isEmpty ? "Tape sur 'Générer' pour créer une bio..." : generatedBio))
-                                 .font(.system(size: 16, weight: .medium, design: .rounded))
-                                 .foregroundColor(generatedBio.isEmpty ? .gray : .white)
-                                 .colorMultiply(Color(red: 0.1, green: 0.1, blue: 0.15)) // Assombrit le fond du TextEditor
-                                 .frame(height: 140)
+                            ScrollView {
+                                Text(generatedBio.isEmpty ? "Tape sur 'Générer' pour créer une bio..." : generatedBio)
+                                    .font(.system(size: 16, weight: .medium, design: .rounded))
+                                    .foregroundColor(generatedBio.isEmpty ? .gray : .white)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                            }
+                            .frame(height: 140)
                         }
                         .padding(14)
                         .background(Color.black.opacity(0.4))
