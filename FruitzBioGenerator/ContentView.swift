@@ -141,9 +141,10 @@ struct ContentView: View {
                         
                         VStack {
                             TextEditor(text: .constant(generatedBio.isEmpty ? "Tape sur 'Générer' pour créer une bio..." : generatedBio))
-                                .font(.system(size: 16, weight: .medium, design: .rounded))
-                                .foregroundColor(generatedBio.isEmpty ? .gray : .white)
-                                .frame(height: 140)
+                                 .font(.system(size: 16, weight: .medium, design: .rounded))
+                                 .foregroundColor(generatedBio.isEmpty ? .gray : .white)
+                                 .colorMultiply(Color(red: 0.1, green: 0.1, blue: 0.15)) // Assombrit le fond du TextEditor
+                                 .frame(height: 140)
                         }
                         .padding(14)
                         .background(Color.black.opacity(0.4))
